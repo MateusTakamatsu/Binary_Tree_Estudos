@@ -77,7 +77,7 @@ int main() {
     // Declare the necessary variables
     int i;
     int array[15] = { 34, 84, 15, 0, 2, 99, 79, 9, 88, 89, 18, 31, 39, 100, 101 };
-    int elementToSearch;
+    int numberToSearch;
     Node *root = NULL;
 
     // Insert function
@@ -89,25 +89,27 @@ int main() {
 
     // Search fuction
     printf("\n\nWhich tree element do you want to search?\n");
-    scanf("%d", &elementToSearch);
+    scanf("%d", &numberToSearch);
 
     // bTree search
-    int comps = search(root, elementToSearch);
+    int comps = search(root, numberToSearch);
     if(comps) {
-        printf("\n>>> [%d] found in %d comparisons <<<\n", elementToSearch, comps);
+        printf("\n>>> [%d] found in %d comparisons <<<\n", numberToSearch, comps);
     } else {
-        printf("\nXXX [%d] not found XXX\n", elementToSearch);
+        printf("\nXXX [%d] not found XXX\n", numberToSearch);
     }
 
     // Array search
-    int arrayComps = simpleSearch(array, elementToSearch);
-    if(arrayComps) {
-        printf("\n>>> [%d] found in %d comparisons <<<\n", elementToSearch, arrayComps);
+    int arrayComps = simpleSearch(array, numberToSearch);
+    if(comps) {
+        printf("\n>>> [%d] found in %d comparisons <<<\n", numberToSearch, arrayComps);
     } else {
-        printf("\nXXX [%d] not found XXX\n", elementToSearch);
+        printf("\nXXX [%d] not found XXX\n", numberToSearch);
     }
 
-    printf("\nWith Binary Search Tree, you skipped [%d] comparisons\n", (arrayComps - comps));
+    if(comps) {
+        printf("\nWith Binary Search Tree, you skipped [%d] comparisons\n", (arrayComps - comps));
+    }
 
     return 0;
 }
